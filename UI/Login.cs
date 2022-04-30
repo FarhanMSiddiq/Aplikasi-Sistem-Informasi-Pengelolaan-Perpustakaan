@@ -16,7 +16,7 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
     public partial class Login : Form
     {
 
-        CekLogin cek = new CekLogin();
+        Authentication auth = new Authentication();
 
         public Login()
         {
@@ -38,18 +38,18 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
             }
             else
             {
-                bool status = cek.cek_login(edt_username.Text, edt_password.Text);
+                bool status = auth.cek_login(edt_username.Text, edt_password.Text,"admin");
                 if (status)
                 {
-                    DashboardAdmin ds = new DashboardAdmin();
+                    DashboardAdmin da = new DashboardAdmin();
                     MessageBox.Show("Berhasil Login", "Berhasil");
-                    ds.Show();
+                    this.Hide();
+                    da.Show();
                 }
                 else
                 {
                     MessageBox.Show("Akun Tidak Ditemukan!", "Gagal");
                 }
-
 
             }
 

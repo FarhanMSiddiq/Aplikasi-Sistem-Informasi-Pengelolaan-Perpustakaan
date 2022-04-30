@@ -7,14 +7,191 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Aplikasi_Pengelolaan_Perpustakaan.Controller;
+using Aplikasi_Pengelolaan_Perpustakaan.Model;
 
 namespace Aplikasi_Pengelolaan_Perpustakaan
 {
     public partial class DataOperator : Form
     {
+        DataOperatorController controller = new DataOperatorController();
+
         public DataOperator()
         {
             InitializeComponent();
+        }
+
+        private void DataOperator_Load(object sender, EventArgs e)
+        {
+            DataSet ds = controller.ambilData();
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "data";
+            dataGridView1.Columns[0].HeaderText = "ID Operator";
+            dataGridView1.Columns[1].HeaderText = "Username";
+            dataGridView1.Columns[2].HeaderText = "Password";
+            dataGridView1.Columns[3].HeaderText = "Nama Lengkap";
+            dataGridView1.Columns[4].HeaderText = "Jenis Kelamin";
+            dataGridView1.Columns[5].HeaderText = "No.Telepon";
+            dataGridView1.Columns[5].HeaderText = "Tanggal Lahir";
+            dataGridView1.Columns[7].HeaderText = "Status Aktif";
+
+            textBox1.Text = controller.generateIdOperator();
+
+        }
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                textBox1.Text = row.Cells[0].Value.ToString();
+                textBox2.Text = row.Cells[1].Value.ToString();
+                textBox3.Text = row.Cells[2].Value.ToString();
+                textBox4.Text = row.Cells[3].Value.ToString();
+                textBox5.Text = row.Cells[5].Value.ToString();
+                comboBox1.Text = row.Cells[4].Value.ToString();
+                string[] tglLahir = row.Cells[6].Value.ToString().Split(' ')[0].Split('/');
+                dateTimePicker1.Value = new DateTime(int.Parse(tglLahir[2]), int.Parse(tglLahir[1]), int.Parse(tglLahir[0]));
+                bool aktif = false;
+                if (row.Cells[7].Value.ToString()=="1")
+                {
+                    aktif = true;
+                }
+                checkBox1.Checked = aktif;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (
+                textBox1.Text == "" ||
+                textBox2.Text == "" ||
+                textBox3.Text == "" ||
+                textBox4.Text == "" ||
+                textBox5.Text == "" ||
+                comboBox1.Text == ""
+            )
+            {
+                MessageBox.Show("Data Belum Terisi Semua!", "Pemberitahuan");
+            }
+            else
+            {
+                int aktif = 0;
+
+                if (checkBox1.Checked)
+                {
+                    aktif = 1;
+                }
+
+                bool checkDataDuplicateId = controller.checkDuplicate(textBox1.Text);
+
+                if (checkDataDuplicateId)
+                {
+                    MessageBox.Show("Data Operator Ini Sudah Terdaftar Di Database!", "Pemberitahuan");
+                    return;
+                }
+                else
+                {
+                    Operator op = new Operator(
+                       textBox1.Text,
+                       textBox2.Text,
+                       textBox3.Text,
+                       textBox4.Text,
+                       comboBox1.Text,
+                       textBox5.Text,
+                       dateTimePicker1.Value.ToString("yyyy-MM-dd"),
+                       aktif
+                   );
+
+                        bool tambah = controller.TambahData(op);
+
+                        if (tambah)
+                        {
+                            DataSet ds = controller.ambilData();
+                            dataGridView1.DataSource = ds;
+                            dataGridView1.DataMember = "data";
+                        }
+                }
+
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = controller.generateIdOperator();
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            comboBox1.Text = "";
+            checkBox1.Checked = false;
+            dateTimePicker1.Value = DateTime.Today;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (
+               textBox1.Text == "" ||
+               textBox2.Text == "" ||
+               textBox3.Text == "" ||
+               textBox4.Text == "" ||
+               textBox5.Text == "" ||
+               comboBox1.Text == ""
+           )
+            {
+                MessageBox.Show("Data Belum Terisi Semua!", "Pemberitahuan");
+            }
+            else
+            {
+                int aktif = 0;
+
+                if (checkBox1.Checked)
+                {
+                    aktif = 1;
+                }
+
+
+                Operator op = new Operator(
+                       textBox1.Text,
+                       textBox2.Text,
+                       textBox3.Text,
+                       textBox4.Text,
+                       comboBox1.Text,
+                       textBox5.Text,
+                       dateTimePicker1.Value.ToString("yyyy-MM-dd"),
+                       aktif
+                   );
+
+                bool ubah = controller.UbahData(op);
+
+                if (ubah)
+                {
+                    DataSet ds = controller.ambilData();
+                    dataGridView1.DataSource = ds;
+                    dataGridView1.DataMember = "data";
+                }
+
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            bool checkDataDuplicateId = controller.checkDuplicate(textBox1.Text);
+            if (!checkDataDuplicateId)
+            {
+                MessageBox.Show("Data Belum Tersedia , Tidak Dapat Dihapus!", "Pemberitahuan");
+            }
+            else
+            {
+                bool hapus = controller.hapusData(textBox1.Text);
+                if (hapus)
+                {
+                    DataSet ds = controller.ambilData();
+                    dataGridView1.DataSource = ds;
+                    dataGridView1.DataMember = "data";
+                }
+            }
+
         }
     }
 }

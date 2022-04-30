@@ -94,8 +94,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\Connection.cs" />
-    <Compile Include="Controller\CekLogin.cs" />
-    <Compile Include="Entity\Operator.cs" />
+    <Compile Include="Controller\Authentication.cs" />
+    <Compile Include="Controller\DataOperatorController.cs" />
+    <Compile Include="Model\LoginSession.cs" />
+    <Compile Include="Model\Operator.cs" />
     <Compile Include="UI\DataOperator.cs">
       <SubType>Form</SubType>
     </Compile>
