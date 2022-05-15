@@ -25,6 +25,7 @@ E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelo
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.csproj.AssemblyReference.cache
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.DashboardAdmin.resources
+E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.UI.DataMember.resources
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.DataOperator.resources
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.Login.resources
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.Properties.Resources.resources
@@ -33,3 +34,6 @@ E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelo
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.csproj.CopyComplete
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.exe
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.pdb
+E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.UI.DataBuku.resources
+E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.UI.PeminjamanBuku.resources
+E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.UI.PengembalianBuku.resources

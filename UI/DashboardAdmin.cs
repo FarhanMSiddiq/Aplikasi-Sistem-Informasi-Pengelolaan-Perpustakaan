@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Aplikasi_Pengelolaan_Perpustakaan.Model;
+using Aplikasi_Pengelolaan_Perpustakaan.UI;
 
 namespace Aplikasi_Pengelolaan_Perpustakaan
 {
@@ -38,6 +39,30 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
         {
             DataOperator formOperator = new DataOperator();
             formOperator.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            DataMember formMember = new DataMember();
+            formMember.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            DataBuku formBuku = new DataBuku();
+            formBuku.Show();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            PeminjamanBuku formPeminjaman = new PeminjamanBuku();
+            formPeminjaman.Show();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            PengembalianBuku formPengembalian = new PengembalianBuku();
+            formPengembalian.Show();
         }
     }
 }

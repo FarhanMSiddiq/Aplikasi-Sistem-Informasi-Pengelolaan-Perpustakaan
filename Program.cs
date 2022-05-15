@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Aplikasi_Pengelolaan_Perpustakaan.UI;
 
 namespace Aplikasi_Pengelolaan_Perpustakaan
 {
@@ -16,7 +17,7 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new DataBuku());
         }
     }
 }
