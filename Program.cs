@@ -17,7 +17,7 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DataBuku());
+            Application.Run(new Login());
         }
     }
 }

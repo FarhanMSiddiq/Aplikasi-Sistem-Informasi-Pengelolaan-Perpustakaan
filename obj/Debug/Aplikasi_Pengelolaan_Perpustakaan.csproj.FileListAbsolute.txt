@@ -37,3 +37,5 @@ E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelo
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.UI.DataBuku.resources
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.UI.PeminjamanBuku.resources
 E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.UI.PengembalianBuku.resources
+E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.UI.DashboardOperator.resources
+E:\Data Farhan\Kuliah\Semester 4\praktikum pbo\Aplikasi-Sistem-Informasi-Pengelolaan-Perpustakaan\obj\Debug\Aplikasi_Pengelolaan_Perpustakaan.UI.DashboardMember.resources

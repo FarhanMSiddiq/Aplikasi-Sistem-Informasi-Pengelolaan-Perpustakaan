@@ -37,7 +37,47 @@ namespace Aplikasi_Pengelolaan_Perpustakaan.Controller
                         return false;
                     }
 
-                }else{
+                }
+                else if (level == "operator")
+                {
+                    MySqlDataReader reader = connection.reader("select * from tbl_operator where username='" + username + "' and password='" + password + "' and status_aktif='1'");
+                    if (reader.Read())
+                    {
+                        LoginSession.Id = reader[0].ToString();
+                        LoginSession.Username = reader[1].ToString();
+                        LoginSession.NamaLengkap = reader[3].ToString();
+                        LoginSession.Level = "operator";
+                        connection.CloseConnection();
+                        return true;
+                    }
+                    else
+                    {
+                        connection.CloseConnection();
+                        return false;
+                    }
+
+                }
+                else if (level == "member")
+                {
+                    MySqlDataReader reader = connection.reader("select * from tbl_member where username='" + username + "' and password='" + password + "'");
+                    if (reader.Read())
+                    {
+                        LoginSession.Id = reader[0].ToString();
+                        LoginSession.Username = reader[1].ToString();
+                        LoginSession.NamaLengkap = reader[3].ToString();
+                        LoginSession.Level = "member";
+                        connection.CloseConnection();
+                        return true;
+                    }
+                    else
+                    {
+                        connection.CloseConnection();
+                        return false;
+                    }
+
+                }
+                else
+                {
                     connection.CloseConnection();
                     return false;
                 }

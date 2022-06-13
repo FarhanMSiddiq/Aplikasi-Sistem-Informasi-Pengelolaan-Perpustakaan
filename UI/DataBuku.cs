@@ -19,39 +19,7 @@ namespace Aplikasi_Pengelolaan_Perpustakaan.UI
         public DataBuku()
         {
             InitializeComponent();
-        }
-
-        private void ExportExcel(DataGridView dataGrid, string filename) {
-            string Output = "";
-            string Headers = "";
-
-            for (int i = 0; i < dataGrid.Columns.Count; i++)
-            {
-                string Line = "";
-                Headers += Line.ToString() + Convert.ToString(dataGrid.Columns[i].HeaderText) + "\t";
-            }
-            Output += Headers + "\r\n";
-
-            for (int i = 0; i < dataGrid.RowCount - 1; i++)
-            {
-                string Line = "";
-                for (int j = 0; j < dataGrid.Rows[i].Cells.Count; j++)
-                {
-                    Line = Line.ToString() + Convert.ToString(dataGrid.Rows[i].Cells[j].Value) + "\t";
-                }
-                Output += Line + "\r\n";
-            }
-
-            Encoding encoding = Encoding.GetEncoding(1254);
-            byte[] Outputs = encoding.GetBytes(Output);
-            FileStream file = new FileStream(filename, FileMode.Create);
-            BinaryWriter binary = new BinaryWriter(file);
-
-            binary.Write(Outputs, 0, Output.Length);
-            binary.Flush();
-            binary.Close();
-            file.Close();
-        }   
+        }  
 
         private void DataBuku_Load(object sender, EventArgs e)
         {
@@ -209,6 +177,39 @@ namespace Aplikasi_Pengelolaan_Perpustakaan.UI
                     }
                 }
             }
+        }
+
+        private void ExportExcel(DataGridView dataGrid, string filename)
+        {
+            string Output = "";
+            string Headers = "";
+
+            for (int i = 0; i < dataGrid.Columns.Count; i++)
+            {
+                string Line = "";
+                Headers += Line.ToString() + Convert.ToString(dataGrid.Columns[i].HeaderText) + "\t";
+            }
+            Output += Headers + "\r\n";
+
+            for (int i = 0; i < dataGrid.RowCount - 1; i++)
+            {
+                string Line = "";
+                for (int j = 0; j < dataGrid.Rows[i].Cells.Count; j++)
+                {
+                    Line = Line.ToString() + Convert.ToString(dataGrid.Rows[i].Cells[j].Value) + "\t";
+                }
+                Output += Line + "\r\n";
+            }
+
+            Encoding encoding = Encoding.GetEncoding(1254);
+            byte[] Outputs = encoding.GetBytes(Output);
+            FileStream file = new FileStream(filename, FileMode.Create);
+            BinaryWriter binary = new BinaryWriter(file);
+
+            binary.Write(Outputs, 0, Output.Length);
+            binary.Flush();
+            binary.Close();
+            file.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)

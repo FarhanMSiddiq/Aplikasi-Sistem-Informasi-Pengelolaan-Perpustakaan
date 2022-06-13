@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Config\Connection.cs" />
     <Compile Include="Controller\Authentication.cs" />
+    <Compile Include="Controller\DashboardMemberController.cs" />
     <Compile Include="Controller\DataBukuController.cs" />
     <Compile Include="Controller\DataMemberController.cs" />
     <Compile Include="Controller\DataOperatorController.cs" />
@@ -105,6 +106,18 @@
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Operator.cs" />
     <Compile Include="Model\Peminjaman.cs" />
+    <Compile Include="UI\DashboardMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DashboardMember.Designer.cs">
+      <DependentUpon>DashboardMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DashboardOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DashboardOperator.Designer.cs">
+      <DependentUpon>DashboardOperator.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DataBuku.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +164,12 @@
     </Compile>
     <EmbeddedResource Include="UI\DashboardAdmin.resx">
       <DependentUpon>DashboardAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DashboardMember.resx">
+      <DependentUpon>DashboardMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DashboardOperator.resx">
+      <DependentUpon>DashboardOperator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DataBuku.resx">
       <DependentUpon>DataBuku.cs</DependentUpon>
