@@ -94,8 +94,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\Connection.cs" />
-    <Compile Include="Controller\CekLogin.cs" />
-    <Compile Include="Entity\Operator.cs" />
+    <Compile Include="Controller\Authentication.cs" />
+    <Compile Include="Controller\DashboardMemberController.cs" />
+    <Compile Include="Controller\DataBukuController.cs" />
+    <Compile Include="Controller\DataMemberController.cs" />
+    <Compile Include="Controller\DataOperatorController.cs" />
+    <Compile Include="Controller\PeminjamanBukuController.cs" />
+    <Compile Include="Controller\PengembalianBukuController.cs" />
+    <Compile Include="Model\Buku.cs" />
+    <Compile Include="Model\LoginSession.cs" />
+    <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\Operator.cs" />
+    <Compile Include="Model\Peminjaman.cs" />
+    <Compile Include="UI\DashboardMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DashboardMember.Designer.cs">
+      <DependentUpon>DashboardMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DashboardOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DashboardOperator.Designer.cs">
+      <DependentUpon>DashboardOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DataBuku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DataBuku.Designer.cs">
+      <DependentUpon>DataBuku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DataMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DataMember.Designer.cs">
+      <DependentUpon>DataMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DataOperator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +150,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\PeminjamanBuku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PeminjamanBuku.Designer.cs">
+      <DependentUpon>PeminjamanBuku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PengembalianBuku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PengembalianBuku.Designer.cs">
+      <DependentUpon>PengembalianBuku.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\DashboardAdmin.resx">
       <DependentUpon>DashboardAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DashboardMember.resx">
+      <DependentUpon>DashboardMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DashboardOperator.resx">
+      <DependentUpon>DashboardOperator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DataBuku.resx">
+      <DependentUpon>DataBuku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DataMember.resx">
+      <DependentUpon>DataMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DataOperator.resx">
       <DependentUpon>DataOperator.cs</DependentUpon>
@@ -135,6 +193,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\PeminjamanBuku.resx">
+      <DependentUpon>PeminjamanBuku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PengembalianBuku.resx">
+      <DependentUpon>PengembalianBuku.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

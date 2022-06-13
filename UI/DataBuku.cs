@@ -11,34 +11,32 @@ using System.Windows.Forms;
 using Aplikasi_Pengelolaan_Perpustakaan.Controller;
 using Aplikasi_Pengelolaan_Perpustakaan.Model;
 
-namespace Aplikasi_Pengelolaan_Perpustakaan
+namespace Aplikasi_Pengelolaan_Perpustakaan.UI
 {
-    public partial class DataOperator : Form
+    public partial class DataBuku : Form
     {
-        DataOperatorController controller = new DataOperatorController();
-
-        public DataOperator()
+        DataBukuController controller = new DataBukuController();
+        public DataBuku()
         {
             InitializeComponent();
-        }
+        }  
 
-        private void DataOperator_Load(object sender, EventArgs e)
+        private void DataBuku_Load(object sender, EventArgs e)
         {
             DataSet ds = controller.ambilData();
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "data";
-            dataGridView1.Columns[0].HeaderText = "ID Operator";
-            dataGridView1.Columns[1].HeaderText = "Username";
-            dataGridView1.Columns[2].HeaderText = "Password";
-            dataGridView1.Columns[3].HeaderText = "Nama Lengkap";
-            dataGridView1.Columns[4].HeaderText = "Jenis Kelamin";
-            dataGridView1.Columns[5].HeaderText = "No.Telepon";
-            dataGridView1.Columns[5].HeaderText = "Tanggal Lahir";
-            dataGridView1.Columns[7].HeaderText = "Status Aktif";
+            dataGridView1.Columns[0].HeaderText = "ID Buku";
+            dataGridView1.Columns[1].HeaderText = "Judul Buku";
+            dataGridView1.Columns[2].HeaderText = "Kategori Buku";
+            dataGridView1.Columns[3].HeaderText = "Halaman Buku";
+            dataGridView1.Columns[4].HeaderText = "Penerbit Buku";
+            dataGridView1.Columns[5].HeaderText = "Penulis Buku";
+            dataGridView1.Columns[6].HeaderText = "ISBN Buku";
 
-            textBox1.Text = controller.generateIdOperator();
-
+            textBox1.Text = controller.generateIdBuku();
         }
+
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -48,18 +46,13 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
                 textBox2.Text = row.Cells[1].Value.ToString();
                 textBox3.Text = row.Cells[2].Value.ToString();
                 textBox4.Text = row.Cells[3].Value.ToString();
-                textBox5.Text = row.Cells[5].Value.ToString();
-                comboBox1.Text = row.Cells[4].Value.ToString();
-                string[] tglLahir = row.Cells[6].Value.ToString().Split(' ')[0].Split('/');
-                dateTimePicker1.Value = new DateTime(int.Parse(tglLahir[2]), int.Parse(tglLahir[1]), int.Parse(tglLahir[0]));
-                bool aktif = false;
-                if (row.Cells[7].Value.ToString()=="1")
-                {
-                    aktif = true;
-                }
-                checkBox1.Checked = aktif;
+                textBox5.Text = row.Cells[4].Value.ToString();
+                textBox6.Text = row.Cells[5].Value.ToString();
+                textBox7.Text = row.Cells[6].Value.ToString();
+
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -69,48 +62,42 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
                 textBox3.Text == "" ||
                 textBox4.Text == "" ||
                 textBox5.Text == "" ||
-                comboBox1.Text == ""
+                textBox6.Text == "" ||
+                textBox7.Text == "" 
             )
             {
                 MessageBox.Show("Data Belum Terisi Semua!", "Pemberitahuan");
             }
             else
             {
-                int aktif = 0;
-
-                if (checkBox1.Checked)
-                {
-                    aktif = 1;
-                }
 
                 bool checkDataDuplicateId = controller.checkDuplicate(textBox1.Text);
 
                 if (checkDataDuplicateId)
                 {
-                    MessageBox.Show("Data Operator Ini Sudah Terdaftar Di Database!", "Pemberitahuan");
+                    MessageBox.Show("Data Buku Ini Sudah Terdaftar Di Database!", "Pemberitahuan");
                     return;
                 }
                 else
                 {
-                    Operator op = new Operator(
+                    Buku bk = new Buku(
                        textBox1.Text,
                        textBox2.Text,
                        textBox3.Text,
                        textBox4.Text,
-                       comboBox1.Text,
                        textBox5.Text,
-                       dateTimePicker1.Value.ToString("yyyy-MM-dd"),
-                       aktif
+                       textBox6.Text,
+                       textBox7.Text
                    );
 
-                        bool tambah = controller.TambahData(op);
+                    bool tambah = controller.TambahData(bk);
 
-                        if (tambah)
-                        {
-                            DataSet ds = controller.ambilData();
-                            dataGridView1.DataSource = ds;
-                            dataGridView1.DataMember = "data";
-                        }
+                    if (tambah)
+                    {
+                        DataSet ds = controller.ambilData();
+                        dataGridView1.DataSource = ds;
+                        dataGridView1.DataMember = "data";
+                    }
                 }
 
             }
@@ -118,51 +105,44 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
 
         private void button4_Click(object sender, EventArgs e)
         {
-            textBox1.Text = controller.generateIdOperator();
+            textBox1.Text = controller.generateIdBuku();
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
             textBox5.Text = "";
-            comboBox1.Text = "";
-            checkBox1.Checked = false;
-            dateTimePicker1.Value = DateTime.Today;
+            textBox6.Text = "";
+            textBox7.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (
-               textBox1.Text == "" ||
-               textBox2.Text == "" ||
-               textBox3.Text == "" ||
-               textBox4.Text == "" ||
-               textBox5.Text == "" ||
-               comboBox1.Text == ""
+                textBox1.Text == "" ||
+                textBox2.Text == "" ||
+                textBox3.Text == "" ||
+                textBox4.Text == "" ||
+                textBox5.Text == "" ||
+                textBox6.Text == "" ||
+                textBox7.Text == ""
            )
             {
                 MessageBox.Show("Data Belum Terisi Semua!", "Pemberitahuan");
             }
             else
             {
-                int aktif = 0;
-
-                if (checkBox1.Checked)
-                {
-                    aktif = 1;
-                }
 
 
-                Operator op = new Operator(
-                       textBox1.Text,
-                       textBox2.Text,
-                       textBox3.Text,
-                       textBox4.Text,
-                       comboBox1.Text,
-                       textBox5.Text,
-                       dateTimePicker1.Value.ToString("yyyy-MM-dd"),
-                       aktif
-                   );
+                Buku bk = new Buku(
+                   textBox1.Text,
+                   textBox2.Text,
+                   textBox3.Text,
+                   textBox4.Text,
+                   textBox5.Text,
+                   textBox6.Text,
+                   textBox7.Text
+               );
 
-                bool ubah = controller.UbahData(op);
+                bool ubah = controller.UbahData(bk);
 
                 if (ubah)
                 {
@@ -172,7 +152,6 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
                 }
 
             }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -184,9 +163,9 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
             }
             else
             {
-                var confirmResult = MessageBox.Show("Apakah Anda Yakin Akan Menghapus Data Operator dengan ID Operator "+textBox1.Text + " ??",
-                                     "Konfirmasi Hapus Data!!",
-                                     MessageBoxButtons.YesNo);
+                var confirmResult = MessageBox.Show("Apakah Anda Yakin Akan Menghapus Data Buku dengan ID Buku " + textBox1.Text + " ??",
+                                 "Konfirmasi Hapus Data!!",
+                                 MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
                     bool hapus = controller.hapusData(textBox1.Text);
@@ -197,9 +176,7 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
                         dataGridView1.DataMember = "data";
                     }
                 }
-              
             }
-
         }
 
         private void ExportExcel(DataGridView dataGrid, string filename)
@@ -239,13 +216,12 @@ namespace Aplikasi_Pengelolaan_Perpustakaan
         {
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Excel Documents (*.xls)|*.xls";
-            save.FileName = "DataOperator.xls";
+            save.FileName = "DataBuku.xls";
 
             if (save.ShowDialog() == DialogResult.OK)
             {
                 ExportExcel(dataGridView1, save.FileName);
             }
         }
-
     }
 }

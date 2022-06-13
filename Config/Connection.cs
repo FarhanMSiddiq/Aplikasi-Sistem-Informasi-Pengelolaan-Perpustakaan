@@ -43,5 +43,19 @@ namespace Aplikasi_Pengelolaan_Perpustakaan.Config
             MySqlDataReader dr = cmd.ExecuteReader();
             return dr;
         }
+
+        public MySqlDataAdapter adapter(string query)
+        {
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            return da;
+        }
+
+        public void command(string query)
+        {
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+        }
+            
     }
 }
